@@ -18,9 +18,9 @@
 
 package com.oliveryasuna.math.algebra.group.concrete.integers;
 
-import com.oliveryasuna.commons.language.condition.Arguments;
 import com.oliveryasuna.commons.language.marker.Immutable;
 import com.oliveryasuna.math.algebra.group.CommutativeGroup;
+import com.oliveryasuna.math.algebra.group.helper.MagmaCommon;
 import com.oliveryasuna.math.algebra.group.operation.CommutativeGroupOperation;
 
 import java.math.BigInteger;
@@ -33,7 +33,8 @@ import java.math.BigInteger;
  * @author Oliver Yasuna
  */
 @Immutable
-public abstract class IntegersAdditiveGroupBase<S extends IntegersAdditiveGroupBase<S, E>, E extends IntegersAdditiveGroupElementBase<E, S>> implements CommutativeGroup<S, E> {
+public abstract class IntegersAdditiveGroupBase<S extends IntegersAdditiveGroupBase<S, E>, E extends IntegersAdditiveGroupElementBase<E, S>>
+    extends MagmaCommon<S, E, BigInteger> implements CommutativeGroup<S, E> {
 
   // Constructors
   //--------------------------------------------------
@@ -49,26 +50,17 @@ public abstract class IntegersAdditiveGroupBase<S extends IntegersAdditiveGroupB
 
   protected final CommutativeGroupOperation<E> operation;
 
-  // Methods
-  //--------------------------------------------------
-
-  // Elements
-  //
-
-  public abstract E getElementSafe(final BigInteger value);
-
-  public E getElement(final BigInteger value) {
-    Arguments.requireTrue(hasElement(value), "The group does not contain the element: " + value + ".");
-
-    return getElementSafe(value);
-  }
-
-  public boolean hasElement(final BigInteger value) {
-    return (value != null);
-  }
-
   // Overrides
   //--------------------------------------------------
+
+  // MagmaCommon
+  //
+
+  @Override
+  public boolean hasElementSafe(final BigInteger value) {
+    return true;
+  }
+
 
   // CommutativeGroup
   //

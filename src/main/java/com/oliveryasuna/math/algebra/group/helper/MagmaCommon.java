@@ -16,17 +16,45 @@
  * TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.oliveryasuna.math.algebra.group.operation;
+package com.oliveryasuna.math.algebra.group.helper;
 
-import com.oliveryasuna.math.algebra.group.FiniteGroupElement;
+import com.oliveryasuna.commons.language.condition.Arguments;
+import com.oliveryasuna.math.algebra.group.Magma;
+import com.oliveryasuna.math.algebra.group.MagmaElement;
 
 /**
- * Represents the operation of a finite group.
+ * Common functionality for group-like structures.
  *
+ * @param <S> The type of structure.
  * @param <E> The type of elements.
- *
- * @author Oliver Yasuna.
  */
-public interface FiniteGroupOperation<E extends FiniteGroupElement<E, ?>> extends GroupOperation<E> {
+public abstract class MagmaCommon<S extends Magma<S, E>, E extends MagmaElement<E, S>, V> {
+
+  // Constructors
+  //--------------------------------------------------
+
+  protected MagmaCommon() {
+    super();
+  }
+
+  // Methods
+  //--------------------------------------------------
+
+  // Elements
+  //
+
+  public abstract E getElementSafe(final V value);
+
+  public E getElement(final V value) {
+    Arguments.requireTrue(hasElement(value), "The structure does not contain the element: " + value + ".");
+
+    return getElementSafe(value);
+  }
+
+  public abstract boolean hasElementSafe(final V value);
+
+  public boolean hasElement(final V value) {
+    return (value != null && hasElementSafe(value));
+  }
 
 }

@@ -21,6 +21,7 @@ package com.oliveryasuna.math.algebra.group.concrete.realnumbers;
 import com.oliveryasuna.commons.language.condition.Arguments;
 import com.oliveryasuna.commons.language.marker.Immutable;
 import com.oliveryasuna.math.algebra.group.CommutativeGroup;
+import com.oliveryasuna.math.algebra.group.helper.MagmaCommon;
 import com.oliveryasuna.math.algebra.group.operation.CommutativeGroupOperation;
 
 import java.math.BigDecimal;
@@ -34,7 +35,9 @@ import java.math.RoundingMode;
  * @author Oliver Yasuna
  */
 @Immutable
-public abstract class RealNumbersMultiplicativeGroupBase<S extends RealNumbersMultiplicativeGroupBase<S, E>, E extends RealNumbersMultiplicativeGroupElementBase<E, S>> implements CommutativeGroup<S, E> {
+public abstract class RealNumbersMultiplicativeGroupBase
+    <S extends RealNumbersMultiplicativeGroupBase<S, E>, E extends RealNumbersMultiplicativeGroupElementBase<E, S>> extends MagmaCommon<S, E, BigDecimal>
+    implements CommutativeGroup<S, E> {
 
   // Constructors
   //--------------------------------------------------
@@ -56,26 +59,17 @@ public abstract class RealNumbersMultiplicativeGroupBase<S extends RealNumbersMu
 
   protected final RoundingMode roundingMode;
 
-  // Methods
-  //--------------------------------------------------
-
-  // Elements
-  //
-
-  public abstract E getElementSafe(final BigDecimal value);
-
-  public E getElement(final BigDecimal value) {
-    Arguments.requireTrue(hasElement(value), "The group does not contain the element: " + value + ".");
-
-    return getElementSafe(value);
-  }
-
-  public boolean hasElement(final BigDecimal value) {
-    return (value != null && !value.equals(BigDecimal.ZERO));
-  }
-
   // Overrides
   //--------------------------------------------------
+
+  // MagmaCommon
+  //
+
+  @Override
+  public boolean hasElementSafe(final BigDecimal value) {
+    return !value.equals(BigDecimal.ZERO);
+  }
+
 
   // CommutativeGroup
   //
