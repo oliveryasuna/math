@@ -26,7 +26,7 @@ import com.oliveryasuna.math.algebra.group.MagmaElement;
  *
  * @author Oliver Yasuna
  */
-public interface MultiplicationMagmaElement<E extends MagmaElement<E, S>, S extends Magma<S, E>> extends MagmaElement<E, S> {
+public interface MultiplicativeMagmaElement<E extends MagmaElement<E, S>, S extends Magma<S, E>> extends MagmaElement<E, S> {
 
   /**
    * Alias for {@link #operate(MagmaElement)}.

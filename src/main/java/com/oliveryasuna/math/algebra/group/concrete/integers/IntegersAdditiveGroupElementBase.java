@@ -21,7 +21,7 @@ package com.oliveryasuna.math.algebra.group.concrete.integers;
 import com.oliveryasuna.commons.language.marker.Immutable;
 import com.oliveryasuna.math.algebra.AbstractAlgebraicElement;
 import com.oliveryasuna.math.algebra.group.CommutativeGroupElement;
-import com.oliveryasuna.math.algebra.group.helper.AdditionMagmaElement;
+import com.oliveryasuna.math.algebra.group.helper.AdditiveMagmaElement;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -35,7 +35,7 @@ import java.math.BigInteger;
  */
 @Immutable
 public class IntegersAdditiveGroupElementBase<E extends IntegersAdditiveGroupElementBase<E, S>, S extends IntegersAdditiveGroupBase<S, E>> extends AbstractAlgebraicElement<E, S>
-    implements CommutativeGroupElement<E, S>, AdditionMagmaElement<E, S> {
+    implements CommutativeGroupElement<E, S>, AdditiveMagmaElement<E, S> {
 
   // Constructors
   //--------------------------------------------------

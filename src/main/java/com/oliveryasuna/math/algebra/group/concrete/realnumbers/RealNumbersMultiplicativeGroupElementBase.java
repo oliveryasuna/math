@@ -21,7 +21,7 @@ package com.oliveryasuna.math.algebra.group.concrete.realnumbers;
 import com.oliveryasuna.commons.language.marker.Immutable;
 import com.oliveryasuna.math.algebra.AbstractAlgebraicElement;
 import com.oliveryasuna.math.algebra.group.CommutativeGroupElement;
-import com.oliveryasuna.math.algebra.group.helper.MultiplicationMagmaElement;
+import com.oliveryasuna.math.algebra.group.helper.MultiplicativeMagmaElement;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -35,7 +35,7 @@ import java.math.BigDecimal;
  */
 @Immutable
 public class RealNumbersMultiplicativeGroupElementBase<E extends RealNumbersMultiplicativeGroupElementBase<E, S>, S extends RealNumbersMultiplicativeGroupBase<S, E>> extends AbstractAlgebraicElement<E, S>
-    implements CommutativeGroupElement<E, S>, MultiplicationMagmaElement<E, S> {
+    implements CommutativeGroupElement<E, S>, MultiplicativeMagmaElement<E, S> {
 
   // Constructors
   //--------------------------------------------------
