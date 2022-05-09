@@ -99,21 +99,21 @@ public abstract class IntegersAdditiveGroupBase<S extends IntegersAdditiveGroupB
     final IntegersAdditiveGroupBase<?, ?> otherCasted = (IntegersAdditiveGroupBase<?, ?>)other;
 
     return new EqualsBuilder()
-        .append(operation, otherCasted.operation)
+        .append(operation(), otherCasted.operation())
         .isEquals();
   }
 
   @Override
   public int hashCode() {
     return new HashCodeBuilder(17, 37)
-        .append(operation)
+        .append(operation())
         .toHashCode();
   }
 
   @Override
   public String toString() {
     return new ToStringBuilder(this)
-        .append("operation", operation)
+        .append("operation", operation())
         .toString();
   }
 
