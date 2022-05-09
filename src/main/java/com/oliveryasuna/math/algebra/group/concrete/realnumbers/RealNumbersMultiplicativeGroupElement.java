@@ -21,32 +21,20 @@ package com.oliveryasuna.math.algebra.group.concrete.realnumbers;
 import com.oliveryasuna.commons.language.marker.Immutable;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 /**
- * Represents the group of real numbers without \(0\) under multiplication.
+ * Represents an element of the group of real numbers without \(0\) under multiplication.
  *
  * @author Oliver Yasuna
  */
 @Immutable
-public class RealNumberGroup extends RealNumberGroupBase<RealNumberGroup, RealNumberGroupElement> {
+public class RealNumbersMultiplicativeGroupElement extends RealNumbersMultiplicativeGroupElementBase<RealNumbersMultiplicativeGroupElement, RealNumbersMultiplicativeGroup> {
 
   // Constructors
   //--------------------------------------------------
 
-  public RealNumberGroup(final RoundingMode roundingMode) {
-    super(roundingMode);
-  }
-
-  // Overrides
-  //--------------------------------------------------
-
-  // RealNumberGroupBase
-  //
-
-  @Override
-  public RealNumberGroupElement getElementSafe(final BigDecimal value) {
-    return new RealNumberGroupElement(value, this);
+  protected RealNumbersMultiplicativeGroupElement(final BigDecimal value, final RealNumbersMultiplicativeGroup structure) {
+    super(value, structure);
   }
 
 }

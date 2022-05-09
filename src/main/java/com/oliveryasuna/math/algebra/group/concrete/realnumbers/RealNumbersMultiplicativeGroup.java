@@ -16,36 +16,37 @@
  * TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.oliveryasuna.math.algebra.group.concrete.integers;
+package com.oliveryasuna.math.algebra.group.concrete.realnumbers;
 
 import com.oliveryasuna.commons.language.marker.Immutable;
 
-import java.math.BigInteger;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
- * Represents the group of integers under addition.
+ * Represents the group of real numbers without \(0\) under multiplication.
  *
  * @author Oliver Yasuna
  */
 @Immutable
-public class IntegerGroup extends IntegerGroupBase<IntegerGroup, IntegerGroupElement> {
+public class RealNumbersMultiplicativeGroup extends RealNumbersMultiplicativeGroupBase<RealNumbersMultiplicativeGroup, RealNumbersMultiplicativeGroupElement> {
 
   // Constructors
   //--------------------------------------------------
 
-  public IntegerGroup() {
-    super();
+  public RealNumbersMultiplicativeGroup(final RoundingMode roundingMode) {
+    super(roundingMode);
   }
 
   // Overrides
   //--------------------------------------------------
 
-  // IntegerGroupBase
+  // RealNumberGroupBase
   //
 
   @Override
-  public IntegerGroupElement getElementSafe(final BigInteger value) {
-    return new IntegerGroupElement(value, this);
+  public RealNumbersMultiplicativeGroupElement getElementSafe(final BigDecimal value) {
+    return new RealNumbersMultiplicativeGroupElement(value, this);
   }
 
 }

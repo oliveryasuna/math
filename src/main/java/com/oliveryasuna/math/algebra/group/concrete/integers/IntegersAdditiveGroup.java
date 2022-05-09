@@ -16,25 +16,36 @@
  * TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.oliveryasuna.math.algebra.group.concrete.realnumbers;
+package com.oliveryasuna.math.algebra.group.concrete.integers;
 
 import com.oliveryasuna.commons.language.marker.Immutable;
 
-import java.math.BigDecimal;
+import java.math.BigInteger;
 
 /**
- * Represents an element of the group of real numbers without \(0\) under multiplication.
+ * Represents the group of integers under addition.
  *
  * @author Oliver Yasuna
  */
 @Immutable
-public class RealNumberGroupElement extends RealNumberGroupElementBase<RealNumberGroupElement, RealNumberGroup> {
+public class IntegersAdditiveGroup extends IntegersAdditiveGroupBase<IntegersAdditiveGroup, IntegersAdditiveGroupElement> {
 
   // Constructors
   //--------------------------------------------------
 
-  protected RealNumberGroupElement(final BigDecimal value, final RealNumberGroup structure) {
-    super(value, structure);
+  public IntegersAdditiveGroup() {
+    super();
+  }
+
+  // Overrides
+  //--------------------------------------------------
+
+  // IntegerGroupBase
+  //
+
+  @Override
+  public IntegersAdditiveGroupElement getElementSafe(final BigInteger value) {
+    return new IntegersAdditiveGroupElement(value, this);
   }
 
 }

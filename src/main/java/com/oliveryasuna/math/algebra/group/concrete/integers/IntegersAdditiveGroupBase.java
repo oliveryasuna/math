@@ -16,37 +16,32 @@
  * TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.oliveryasuna.math.algebra.group.concrete.realnumbers;
+package com.oliveryasuna.math.algebra.group.concrete.integers;
 
 import com.oliveryasuna.commons.language.condition.Arguments;
 import com.oliveryasuna.commons.language.marker.Immutable;
 import com.oliveryasuna.math.algebra.group.CommutativeGroup;
 import com.oliveryasuna.math.algebra.group.operation.CommutativeGroupOperation;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
+import java.math.BigInteger;
 
 /**
- * Abstract representation of the group of real numbers without \(0\) under multiplication.
+ * Abstract representation of the group of integers under addition.
  * <p>
- * Mathematically defined as \(\left(\mathbb{R}\setminus\left{0\right},\times\right)\).
+ * Mathematically defined as \(\left(\mathbb{Z},+\right)\).
  *
  * @author Oliver Yasuna
  */
 @Immutable
-public abstract class RealNumberGroupBase<S extends RealNumberGroupBase<S, E>, E extends RealNumberGroupElementBase<E, S>> implements CommutativeGroup<S, E> {
+public abstract class IntegersAdditiveGroupBase<S extends IntegersAdditiveGroupBase<S, E>, E extends IntegersAdditiveGroupElementBase<E, S>> implements CommutativeGroup<S, E> {
 
   // Constructors
   //--------------------------------------------------
 
-  public RealNumberGroupBase(final RoundingMode roundingMode) {
+  public IntegersAdditiveGroupBase() {
     super();
 
-    Arguments.requireNotNull(roundingMode);
-
-    this.operation = new MultiplicationOperation();
-
-    this.roundingMode = roundingMode;
+    this.operation = new AdditionOperation();
   }
 
   // Fields
@@ -54,24 +49,22 @@ public abstract class RealNumberGroupBase<S extends RealNumberGroupBase<S, E>, E
 
   protected final CommutativeGroupOperation<E> operation;
 
-  protected final RoundingMode roundingMode;
-
   // Methods
   //--------------------------------------------------
 
   // Elements
   //
 
-  public abstract E getElementSafe(final BigDecimal value);
+  public abstract E getElementSafe(final BigInteger value);
 
-  public E getElement(final BigDecimal value) {
+  public E getElement(final BigInteger value) {
     Arguments.requireTrue(hasElement(value), "The group does not contain the element: " + value + ".");
 
     return getElementSafe(value);
   }
 
-  public boolean hasElement(final BigDecimal value) {
-    return (value != null && !value.equals(BigDecimal.ZERO));
+  public boolean hasElement(final BigInteger value) {
+    return (value != null);
   }
 
   // Overrides
@@ -85,25 +78,18 @@ public abstract class RealNumberGroupBase<S extends RealNumberGroupBase<S, E>, E
     return operation;
   }
 
-  // Getters
-  //--------------------------------------------------
-
-  public RoundingMode getRoundingMode() {
-    return roundingMode;
-  }
-
   // Nested
   //--------------------------------------------------
 
-  protected class MultiplicationOperation implements CommutativeGroupOperation<E> {
+  protected class AdditionOperation implements CommutativeGroupOperation<E> {
 
     // Constructors
     //--------------------------------------------------
 
-    protected MultiplicationOperation() {
+    protected AdditionOperation() {
       super();
 
-      this.identity = RealNumberGroupBase.this.getElement(BigDecimal.ONE);
+      this.identity = IntegersAdditiveGroupBase.this.getElement(BigInteger.ZERO);
     }
 
     // Fields
@@ -118,8 +104,8 @@ public abstract class RealNumberGroupBase<S extends RealNumberGroupBase<S, E>, E
     //
 
     @Override
-    public E perform(final E multiplier, final E multiplicand) {
-      return RealNumberGroupBase.this.getElement(multiplier.getValue().multiply(multiplicand.getValue()));
+    public E perform(final E augend, final E addend) {
+      return IntegersAdditiveGroupBase.this.getElement(augend.getValue().add(addend.getValue()));
     }
 
     // Identity
@@ -135,7 +121,7 @@ public abstract class RealNumberGroupBase<S extends RealNumberGroupBase<S, E>, E
 
     @Override
     public E inverse(final E element) {
-      return RealNumberGroupBase.this.getElement(BigDecimal.ONE.divide(element.getValue(), RealNumberGroupBase.this.getRoundingMode()));
+      return IntegersAdditiveGroupBase.this.getElement(element.getValue().negate());
     }
 
   }

@@ -28,12 +28,12 @@ import java.math.BigInteger;
  * @author Oliver Yasuna
  */
 @Immutable
-public class IntegerGroupElement extends IntegerGroupElementBase<IntegerGroupElement, IntegerGroup> {
+public class IntegersAdditiveGroupElement extends IntegersAdditiveGroupElementBase<IntegersAdditiveGroupElement, IntegersAdditiveGroup> {
 
   // Constructors
   //--------------------------------------------------
 
-  protected IntegerGroupElement(final BigInteger value, final IntegerGroup structure) {
+  protected IntegersAdditiveGroupElement(final BigInteger value, final IntegersAdditiveGroup structure) {
     super(value, structure);
   }
 

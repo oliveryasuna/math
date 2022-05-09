@@ -16,31 +16,31 @@
  * TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.oliveryasuna.math.algebra.group.concrete.realnumbers;
+package com.oliveryasuna.math.algebra.group.concrete.integers;
 
 import com.oliveryasuna.commons.language.marker.Immutable;
 import com.oliveryasuna.math.algebra.AbstractAlgebraicElement;
 import com.oliveryasuna.math.algebra.group.CommutativeGroupElement;
-import com.oliveryasuna.math.algebra.group.helper.MultiplicationMagmaElement;
+import com.oliveryasuna.math.algebra.group.helper.AdditionMagmaElement;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import java.math.BigDecimal;
+import java.math.BigInteger;
 
 /**
- * Abstract representation of an element of the group of real numbers without \(0\) under multiplication.
+ * Abstract representation of an element of the group of integers under addition.
  *
  * @author Oliver Yasuna
  */
 @Immutable
-public class RealNumberGroupElementBase<E extends RealNumberGroupElementBase<E, S>, S extends RealNumberGroupBase<S, E>> extends AbstractAlgebraicElement<E, S>
-    implements CommutativeGroupElement<E, S>, MultiplicationMagmaElement<E, S> {
+public class IntegersAdditiveGroupElementBase<E extends IntegersAdditiveGroupElementBase<E, S>, S extends IntegersAdditiveGroupBase<S, E>> extends AbstractAlgebraicElement<E, S>
+    implements CommutativeGroupElement<E, S>, AdditionMagmaElement<E, S> {
 
   // Constructors
   //--------------------------------------------------
 
-  protected RealNumberGroupElementBase(final BigDecimal value, final S structure) {
+  protected IntegersAdditiveGroupElementBase(final BigInteger value, final S structure) {
     super(structure);
 
     this.value = value;
@@ -49,12 +49,12 @@ public class RealNumberGroupElementBase<E extends RealNumberGroupElementBase<E, 
   // Fields
   //--------------------------------------------------
 
-  protected final BigDecimal value;
+  protected final BigInteger value;
 
   // Getters
-  //--------------------------------------------------
+  //--------------------------------------------------s
 
-  public BigDecimal getValue() {
+  public BigInteger getValue() {
     return value;
   }
 
@@ -66,7 +66,7 @@ public class RealNumberGroupElementBase<E extends RealNumberGroupElementBase<E, 
     if(this == other) return true;
     if(other == null || getClass() != other.getClass()) return false;
 
-    final RealNumberGroupElementBase<?, ?> otherCasted = (RealNumberGroupElementBase<?, ?>)other;
+    final IntegersAdditiveGroupElementBase<?, ?> otherCasted = (IntegersAdditiveGroupElementBase<?, ?>)other;
 
     return new EqualsBuilder()
         .appendSuper(super.equals(other))
