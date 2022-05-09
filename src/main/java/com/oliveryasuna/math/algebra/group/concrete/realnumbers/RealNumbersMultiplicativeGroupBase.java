@@ -86,6 +86,9 @@ public abstract class RealNumbersMultiplicativeGroupBase
     return roundingMode;
   }
 
+  // TODO: Object methods
+  //--------------------------------------------------
+
   // Nested
   //--------------------------------------------------
 
@@ -131,6 +134,9 @@ public abstract class RealNumbersMultiplicativeGroupBase
     public E inverse(final E element) {
       return RealNumbersMultiplicativeGroupBase.this.getElement(BigDecimal.ONE.divide(element.getValue(), RealNumbersMultiplicativeGroupBase.this.getRoundingMode()));
     }
+
+    // TODO: Object methods
+    //--------------------------------------------------
 
   }
 

@@ -22,9 +22,6 @@ import com.oliveryasuna.commons.language.marker.Immutable;
 import com.oliveryasuna.math.algebra.AbstractAlgebraicElement;
 import com.oliveryasuna.math.algebra.group.CommutativeGroupElement;
 import com.oliveryasuna.math.algebra.group.helper.MultiplicativeMagmaElement;
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
-import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.math.BigDecimal;
 
@@ -58,36 +55,7 @@ public class RealNumbersMultiplicativeGroupElementBase<E extends RealNumbersMult
     return value;
   }
 
-  // Object methods
+  // TODO: Object methods
   //--------------------------------------------------
-
-  @Override
-  public boolean equals(final Object other) {
-    if(this == other) return true;
-    if(other == null || getClass() != other.getClass()) return false;
-
-    final RealNumbersMultiplicativeGroupElementBase<?, ?> otherCasted = (RealNumbersMultiplicativeGroupElementBase<?, ?>)other;
-
-    return new EqualsBuilder()
-        .appendSuper(super.equals(other))
-        .append(getValue(), otherCasted.getValue())
-        .isEquals();
-  }
-
-  @Override
-  public int hashCode() {
-    return new HashCodeBuilder(17, 37)
-        .appendSuper(super.hashCode())
-        .append(getValue())
-        .toHashCode();
-  }
-
-  @Override
-  public String toString() {
-    return new ToStringBuilder(this)
-        .appendSuper(super.toString())
-        .append("value", getValue())
-        .toString();
-  }
 
 }
