@@ -28,7 +28,7 @@ import java.math.BigInteger;
  *
  * @author Oliver Yasuna
  */
-public interface CyclicGroup<S extends CyclicGroup<S, E>, E extends CyclicGroupElement<E, S>> extends Group<S, E> {
+public interface CyclicGroup<S extends CyclicGroup<S, E>, E extends GroupElement<E, S>> extends Group<S, E> {
 
   /**
    * Gets the generator element of the group.

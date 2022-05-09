@@ -29,7 +29,7 @@ import java.util.stream.Stream;
  *
  * @author Oliver Yasuna
  */
-public interface FiniteGroup<S extends FiniteGroup<S, E>, E extends FiniteGroupElement<E, S>> extends Group<S, E> {
+public interface FiniteGroup<S extends FiniteGroup<S, E>, E extends GroupElement<E, S>> extends Group<S, E> {
 
   /**
    * Gets the order of the group.
