@@ -18,11 +18,15 @@
 
 package com.oliveryasuna.math.algebra.group.concrete.integers;
 
+import com.oliveryasuna.commons.language.condition.Arguments;
 import com.oliveryasuna.commons.language.marker.Immutable;
 import com.oliveryasuna.math.algebra.group.CommutativeGroup;
 import com.oliveryasuna.math.algebra.group.CyclicGroup;
 import com.oliveryasuna.math.algebra.group.helper.MagmaCommon;
 import com.oliveryasuna.math.algebra.group.operation.CommutativeGroupOperation;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.math.BigInteger;
 
@@ -40,16 +44,22 @@ public abstract class IntegersAdditiveGroupBase<S extends IntegersAdditiveGroupB
   // Constructors
   //--------------------------------------------------
 
-  public IntegersAdditiveGroupBase() {
+  public IntegersAdditiveGroupBase(final BigInteger generator) {
     super();
 
+    Arguments.requireNotNull(generator, "This group is a cyclic group. It requires a non-null generator.");
+
     this.operation = new AdditionOperation();
+
+    this.generator = getElement(generator);
   }
 
   // Fields
   //--------------------------------------------------
 
   protected final CommutativeGroupOperation<E> operation;
+
+  protected final E generator;
 
   // Overrides
   //--------------------------------------------------
@@ -68,6 +78,43 @@ public abstract class IntegersAdditiveGroupBase<S extends IntegersAdditiveGroupB
   @Override
   public CommutativeGroupOperation<E> operation() {
     return operation;
+  }
+
+  // CyclicGroup
+  //
+
+  @Override
+  public E generator() {
+    return generator;
+  }
+
+  // Object methods
+  //--------------------------------------------------
+
+  @Override
+  public boolean equals(final Object other) {
+    if(this == other) return true;
+    if(other == null || getClass() != other.getClass()) return false;
+
+    final IntegersAdditiveGroupBase<?, ?> otherCasted = (IntegersAdditiveGroupBase<?, ?>)other;
+
+    return new EqualsBuilder()
+        .append(operation, otherCasted.operation)
+        .isEquals();
+  }
+
+  @Override
+  public int hashCode() {
+    return new HashCodeBuilder(17, 37)
+        .append(operation)
+        .toHashCode();
+  }
+
+  @Override
+  public String toString() {
+    return new ToStringBuilder(this)
+        .append("operation", operation)
+        .toString();
   }
 
   // Nested
@@ -97,7 +144,7 @@ public abstract class IntegersAdditiveGroupBase<S extends IntegersAdditiveGroupB
 
     @Override
     public E perform(final E augend, final E addend) {
-      return IntegersAdditiveGroupBase.this.getElementSafe(augend.getValue().add(addend.getValue()));
+      return IntegersAdditiveGroupBase.this.getElement(augend.getValue().add(addend.getValue()));
     }
 
     // Identity
