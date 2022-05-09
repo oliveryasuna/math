@@ -43,7 +43,7 @@ public abstract class MagmaCommon<S extends Magma<S, E>, E extends MagmaElement<
   // Elements
   //
 
-  public abstract E getElementSafe(final V value);
+  public abstract E getElementSafe(V value);
 
   public E getElement(final V value) {
     Arguments.requireTrue(hasElement(value), "The structure does not contain the element: " + value + ".");
@@ -51,7 +51,7 @@ public abstract class MagmaCommon<S extends Magma<S, E>, E extends MagmaElement<
     return getElementSafe(value);
   }
 
-  public abstract boolean hasElementSafe(final V value);
+  public abstract boolean hasElementSafe(V value);
 
   public boolean hasElement(final V value) {
     return (value != null && hasElementSafe(value));
