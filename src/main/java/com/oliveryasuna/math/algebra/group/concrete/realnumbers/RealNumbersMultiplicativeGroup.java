@@ -41,7 +41,7 @@ public class RealNumbersMultiplicativeGroup extends RealNumbersMultiplicativeGro
   // Overrides
   //--------------------------------------------------
 
-  // MagmaCommon
+  // CommonAlgebraicStructure
   //
 
   @Override

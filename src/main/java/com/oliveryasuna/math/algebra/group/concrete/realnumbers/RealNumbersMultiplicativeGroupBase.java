@@ -20,8 +20,8 @@ package com.oliveryasuna.math.algebra.group.concrete.realnumbers;
 
 import com.oliveryasuna.commons.language.condition.Arguments;
 import com.oliveryasuna.commons.language.marker.Immutable;
+import com.oliveryasuna.math.algebra.CommonAlgebraicStructure;
 import com.oliveryasuna.math.algebra.group.CommutativeGroup;
-import com.oliveryasuna.math.algebra.group.helper.MagmaCommon;
 import com.oliveryasuna.math.algebra.group.operation.CommutativeGroupOperation;
 
 import java.math.BigDecimal;
@@ -36,7 +36,7 @@ import java.math.RoundingMode;
  */
 @Immutable
 public abstract class RealNumbersMultiplicativeGroupBase
-    <S extends RealNumbersMultiplicativeGroupBase<S, E>, E extends RealNumbersMultiplicativeGroupElementBase<E, S>> extends MagmaCommon<S, E, BigDecimal>
+    <S extends RealNumbersMultiplicativeGroupBase<S, E>, E extends RealNumbersMultiplicativeGroupElementBase<E, S>> extends CommonAlgebraicStructure<S, E, BigDecimal>
     implements CommutativeGroup<S, E> {
 
   // Constructors
@@ -62,7 +62,7 @@ public abstract class RealNumbersMultiplicativeGroupBase
   // Overrides
   //--------------------------------------------------
 
-  // MagmaCommon
+  // CommonAlgebraicStructure
   //
 
   @Override

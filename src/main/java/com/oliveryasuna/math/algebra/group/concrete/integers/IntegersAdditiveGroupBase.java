@@ -20,9 +20,9 @@ package com.oliveryasuna.math.algebra.group.concrete.integers;
 
 import com.oliveryasuna.commons.language.condition.Arguments;
 import com.oliveryasuna.commons.language.marker.Immutable;
+import com.oliveryasuna.math.algebra.CommonAlgebraicStructure;
 import com.oliveryasuna.math.algebra.group.CommutativeGroup;
 import com.oliveryasuna.math.algebra.group.CyclicGroup;
-import com.oliveryasuna.math.algebra.group.helper.MagmaCommon;
 import com.oliveryasuna.math.algebra.group.operation.CommutativeGroupOperation;
 
 import java.math.BigInteger;
@@ -36,7 +36,7 @@ import java.math.BigInteger;
  */
 @Immutable
 public abstract class IntegersAdditiveGroupBase<S extends IntegersAdditiveGroupBase<S, E>, E extends IntegersAdditiveGroupElementBase<E, S>>
-    extends MagmaCommon<S, E, BigInteger> implements CommutativeGroup<S, E>, CyclicGroup<S, E> {
+    extends CommonAlgebraicStructure<S, E, BigInteger> implements CommutativeGroup<S, E>, CyclicGroup<S, E> {
 
   // Constructors
   //--------------------------------------------------
@@ -61,7 +61,7 @@ public abstract class IntegersAdditiveGroupBase<S extends IntegersAdditiveGroupB
   // Overrides
   //--------------------------------------------------
 
-  // MagmaCommon
+  // CommonAlgebraicStructure
   //
 
   @Override

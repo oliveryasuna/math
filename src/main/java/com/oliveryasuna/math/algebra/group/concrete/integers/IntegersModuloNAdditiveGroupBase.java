@@ -20,10 +20,10 @@ package com.oliveryasuna.math.algebra.group.concrete.integers;
 
 import com.oliveryasuna.commons.language.condition.Arguments;
 import com.oliveryasuna.commons.language.marker.Immutable;
+import com.oliveryasuna.math.algebra.CommonAlgebraicStructure;
 import com.oliveryasuna.math.algebra.group.CommutativeGroup;
 import com.oliveryasuna.math.algebra.group.CyclicGroup;
 import com.oliveryasuna.math.algebra.group.FiniteGroup;
-import com.oliveryasuna.math.algebra.group.helper.MagmaCommon;
 import com.oliveryasuna.math.algebra.group.operation.CommutativeGroupOperation;
 import com.oliveryasuna.math.util.BigIntegerUtils;
 
@@ -34,7 +34,7 @@ import java.util.stream.Stream;
 @Immutable
 public abstract class IntegersModuloNAdditiveGroupBase
     <S extends IntegersModuloNAdditiveGroupBase<S, E>, E extends IntegersModuloNAdditiveGroupElementBase<E, S>>
-    extends MagmaCommon<S, E, BigInteger> implements CommutativeGroup<S, E>, FiniteGroup<S, E>, CyclicGroup<S, E> {
+    extends CommonAlgebraicStructure<S, E, BigInteger> implements CommutativeGroup<S, E>, FiniteGroup<S, E>, CyclicGroup<S, E> {
 
   // Constructors
   //--------------------------------------------------
@@ -64,7 +64,7 @@ public abstract class IntegersModuloNAdditiveGroupBase
   // Overrides
   //--------------------------------------------------
 
-  // MagmaCommon
+  // CommonAlgebraicStructure
   //
 
   @Override

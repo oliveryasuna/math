@@ -40,7 +40,7 @@ public class IntegersAdditiveGroup extends IntegersAdditiveGroupBase<IntegersAdd
   // Overrides
   //--------------------------------------------------
 
-  // MagmaCommon
+  // CommonAlgebraicStructure
   //
 
   @Override

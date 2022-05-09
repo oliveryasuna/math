@@ -16,24 +16,16 @@
  * TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.oliveryasuna.math.algebra.group.helper;
+package com.oliveryasuna.math.algebra;
 
 import com.oliveryasuna.commons.language.condition.Arguments;
-import com.oliveryasuna.math.algebra.group.Magma;
-import com.oliveryasuna.math.algebra.group.MagmaElement;
 
-/**
- * Common functionality for group-like structures.
- *
- * @param <S> The type of structure.
- * @param <E> The type of elements.
- */
-public abstract class MagmaCommon<S extends Magma<S, E>, E extends MagmaElement<E, S>, V> {
+public abstract class CommonAlgebraicStructure<S extends AlgebraicStructure<S, E>, E extends AlgebraicElement<E, S>, V> {
 
   // Constructors
   //--------------------------------------------------
 
-  protected MagmaCommon() {
+  protected CommonAlgebraicStructure() {
     super();
   }
 
