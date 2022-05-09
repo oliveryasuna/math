@@ -18,8 +18,6 @@
 
 package com.oliveryasuna.math.algebra.group;
 
-import com.oliveryasuna.math.algebra.group.operation.CyclicGroupOperation;
-
 import java.math.BigInteger;
 
 /**
@@ -31,9 +29,6 @@ import java.math.BigInteger;
  * @author Oliver Yasuna
  */
 public interface CyclicGroup<S extends CyclicGroup<S, E>, E extends CyclicGroupElement<E, S>> extends Group<S, E> {
-
-  @Override
-  CyclicGroupOperation<E> operation();
 
   /**
    * Gets the generator element of the group.

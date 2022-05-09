@@ -19,6 +19,7 @@
 package com.oliveryasuna.math.algebra.group.operation;
 
 import com.oliveryasuna.math.algebra.group.CommutativeGroupElement;
+import com.oliveryasuna.math.algebra.property.Commutative;
 
 /**
  * Represents the operation of a commutative group.
@@ -27,6 +28,6 @@ import com.oliveryasuna.math.algebra.group.CommutativeGroupElement;
  *
  * @author Oliver Yasuna.
  */
-public interface CommutativeGroupOperation<E extends CommutativeGroupElement<E, ?>> extends GroupOperation<E> {
+public interface CommutativeGroupOperation<E extends CommutativeGroupElement<E, ?>> extends GroupOperation<E>, Commutative {
 
 }

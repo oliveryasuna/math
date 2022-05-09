@@ -18,8 +18,6 @@
 
 package com.oliveryasuna.math.algebra.group;
 
-import com.oliveryasuna.math.algebra.group.operation.FiniteGroupOperation;
-
 import java.math.BigInteger;
 import java.util.stream.Stream;
 
@@ -32,9 +30,6 @@ import java.util.stream.Stream;
  * @author Oliver Yasuna
  */
 public interface FiniteGroup<S extends FiniteGroup<S, E>, E extends FiniteGroupElement<E, S>> extends Group<S, E> {
-
-  @Override
-  FiniteGroupOperation<E> operation();
 
   /**
    * Gets the order of the group.
