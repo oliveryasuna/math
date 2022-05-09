@@ -45,6 +45,15 @@ public abstract class MagmaCommon<S extends Magma<S, E>, E extends MagmaElement<
 
   public abstract E getElementSafe(V value);
 
+  /**
+   * Gets an element of the structure by value.
+   *
+   * @param value The value.
+   *
+   * @return The element of the structure.
+   *
+   * @implSpec Must call {@link #getElementSafe(Object)}.
+   */
   public E getElement(final V value) {
     Arguments.requireTrue(hasElement(value), "The structure does not contain the element: " + value + ".");
 
@@ -53,6 +62,15 @@ public abstract class MagmaCommon<S extends Magma<S, E>, E extends MagmaElement<
 
   public abstract boolean hasElementSafe(V value);
 
+  /**
+   * Gets whether an element belongs to the structure by value.
+   *
+   * @param value The value.
+   *
+   * @return {@code true}, if the element belongs to the structure; {@code false}, otherwise.
+   *
+   * @implSpec Must call {@link #hasElementSafe(Object)}.
+   */
   public boolean hasElement(final V value) {
     return (value != null && hasElementSafe(value));
   }
