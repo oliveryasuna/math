@@ -35,7 +35,14 @@ public class IntegersAdditiveGroup extends IntegersAdditiveGroupBase<IntegersAdd
 
   public IntegersAdditiveGroup() {
     super();
+
+    this.generator = getElementSafe(BigInteger.ONE);
   }
+
+  // Fields
+  //--------------------------------------------------
+
+  protected final IntegersAdditiveGroupElement generator;
 
   // Overrides
   //--------------------------------------------------
@@ -46,6 +53,14 @@ public class IntegersAdditiveGroup extends IntegersAdditiveGroupBase<IntegersAdd
   @Override
   public IntegersAdditiveGroupElement getElementSafe(final BigInteger value) {
     return new IntegersAdditiveGroupElement(value, this);
+  }
+
+  // CyclicGroup
+  //
+
+  @Override
+  public IntegersAdditiveGroupElement generator() {
+    return generator;
   }
 
 }

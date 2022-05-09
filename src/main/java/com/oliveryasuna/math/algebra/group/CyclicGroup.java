@@ -18,8 +18,6 @@
 
 package com.oliveryasuna.math.algebra.group;
 
-import java.math.BigInteger;
-
 /**
  * Represents a cyclic group.
  *
@@ -36,17 +34,5 @@ public interface CyclicGroup<S extends CyclicGroup<S, E>, E extends GroupElement
    * @return The generator element of the group.
    */
   E generator();
-
-  /**
-   * Gets the order of the group.
-   *
-   * @return The order of the group.
-   *
-   * @implSpec Must return the same as {@link #elementCount()}.
-   * @implNote By default, returns the result of {@link #elementCount()}.
-   */
-  default BigInteger order() {
-    return elementCount();
-  }
 
 }

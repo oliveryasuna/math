@@ -20,6 +20,7 @@ package com.oliveryasuna.math.algebra.group.concrete.integers;
 
 import com.oliveryasuna.commons.language.marker.Immutable;
 import com.oliveryasuna.math.algebra.group.CommutativeGroup;
+import com.oliveryasuna.math.algebra.group.CyclicGroup;
 import com.oliveryasuna.math.algebra.group.helper.MagmaCommon;
 import com.oliveryasuna.math.algebra.group.operation.CommutativeGroupOperation;
 
@@ -34,7 +35,7 @@ import java.math.BigInteger;
  */
 @Immutable
 public abstract class IntegersAdditiveGroupBase<S extends IntegersAdditiveGroupBase<S, E>, E extends IntegersAdditiveGroupElementBase<E, S>>
-    extends MagmaCommon<S, E, BigInteger> implements CommutativeGroup<S, E> {
+    extends MagmaCommon<S, E, BigInteger> implements CommutativeGroup<S, E>, CyclicGroup<S, E> {
 
   // Constructors
   //--------------------------------------------------
@@ -60,7 +61,6 @@ public abstract class IntegersAdditiveGroupBase<S extends IntegersAdditiveGroupB
   public boolean hasElementSafe(final BigInteger value) {
     return true;
   }
-
 
   // CommutativeGroup
   //
@@ -97,7 +97,7 @@ public abstract class IntegersAdditiveGroupBase<S extends IntegersAdditiveGroupB
 
     @Override
     public E perform(final E augend, final E addend) {
-      return IntegersAdditiveGroupBase.this.getElement(augend.getValue().add(addend.getValue()));
+      return IntegersAdditiveGroupBase.this.getElementSafe(augend.getValue().add(addend.getValue()));
     }
 
     // Identity
@@ -113,7 +113,7 @@ public abstract class IntegersAdditiveGroupBase<S extends IntegersAdditiveGroupB
 
     @Override
     public E inverse(final E element) {
-      return IntegersAdditiveGroupBase.this.getElement(element.getValue().negate());
+      return IntegersAdditiveGroupBase.this.getElementSafe(element.getValue().negate());
     }
 
   }
