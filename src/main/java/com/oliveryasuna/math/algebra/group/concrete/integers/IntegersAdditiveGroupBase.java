@@ -115,7 +115,7 @@ public abstract class IntegersAdditiveGroupBase<S extends IntegersAdditiveGroupB
 
     @Override
     public E perform(final E augend, final E addend) {
-      return IntegersAdditiveGroupBase.this.getElement(augend.getValue().add(addend.getValue()));
+      return IntegersAdditiveGroupBase.this.getElementSafe(augend.getValue().add(addend.getValue()));
     }
 
     // Identity
