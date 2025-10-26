@@ -226,19 +226,13 @@ class SymmetricGroupTest {
     // Define basic moves as permutations
 
     // R (Right face clockwise): rotates positions 1,2,5,6
-    final Permutation R = S8.fromCycles(Arrays.asList(
-        Arrays.asList(1, 5, 6, 2)
-    ));
+    final Permutation R = S8.fromCycles(List.of(Arrays.asList(1, 5, 6, 2)));
 
     // U (Up face clockwise): rotates positions 0,1,2,3
-    final Permutation U = S8.fromCycles(Arrays.asList(
-        Arrays.asList(0, 1, 2, 3)
-    ));
+    final Permutation U = S8.fromCycles(List.of(Arrays.asList(0, 1, 2, 3)));
 
     // F (Front face clockwise): rotates positions 0,1,5,4
-    final Permutation F = S8.fromCycles(Arrays.asList(
-        Arrays.asList(0, 4, 5, 1)
-    ));
+    final Permutation F = S8.fromCycles(List.of(Arrays.asList(0, 4, 5, 1)));
 
     System.out.println("Rubik's Cube 2x2x2 Basic Moves:");
     System.out.println("R (Right): " + R);
