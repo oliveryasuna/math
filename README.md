@@ -15,14 +15,14 @@ This is **not** an alternative to or replacement for [commons-math](https://comm
 ## Use Cases
 
 **Cryptography:**
-- **Elliptic Curve Cryptography:** Define elliptic curve groups for ECDSA/ECDH
+- **Elliptic Curve Cryptography:** Define elliptic curve groups for ECDSA/ECDH (see [`EllipticCurveGroup`](./src/main/java/com/oliveryasuna/math/algebra/group/concrete/ellipticcurve/EllipticCurveGroup.java))
 - **RSA:** Use multiplicative group modulo n for key generation and operations
 - **Diffie-Hellman:** Cyclic groups for key exchange protocols
 - **Digital Signatures:** Group-based signature schemes (Schnorr, DSA)
 - **Homomorphic Encryption:** Ring structures for operations on encrypted data
 
 **Number Theory:**
-- **Modular Arithmetic:** Already have `IntegersModuloNAdditiveGroup` for congruence computations
+- **Modular Arithmetic:** Already have [`IntegersModuloNAdditiveGroup`](./src/main/java/com/oliveryasuna/math/algebra/group/concrete/integers/IntegersModuloNAdditiveGroup.java) for congruence computations
 - **Prime Field Operations:** Field arithmetic for prime moduli
 - **Chinese Remainder Theorem:** Combining ring homomorphisms
 - **Quadratic Residues:** Group structure of squares modulo p
@@ -33,7 +33,7 @@ This is **not** an alternative to or replacement for [commons-math](https://comm
 - **Cyclic Codes:** Polynomial rings and ideals
 
 **Logic Theory:**
-- **Logic Operations:** Boolean rings (already have `BooleanRing` interface)
+- **Logic Operations:** Boolean rings (already have [`BooleanRing`](./src/main/java/com/oliveryasuna/math/algebra/ring/BooleanRing.java) interface)
 - **Propositional Logic:** Algebraic structures for logical equivalences
 - **Modal Logic:** Algebraic semantics for modal operators
 
