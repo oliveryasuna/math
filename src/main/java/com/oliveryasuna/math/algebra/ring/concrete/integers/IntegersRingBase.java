@@ -151,7 +151,7 @@ public abstract class IntegersRingBase<S extends IntegersRingBase<S, E>, E exten
 
       this.distributivity = Distributivity.over(IntegersRingBase.this.operation1());
 
-      this.identity = IntegersRingBase.this.getElement(BigInteger.ZERO);
+      this.identity = IntegersRingBase.this.getElement(BigInteger.ONE);
     }
 
     // Fields
@@ -169,7 +169,7 @@ public abstract class IntegersRingBase<S extends IntegersRingBase<S, E>, E exten
 
     @Override
     public E perform(final E augend, final E addend) {
-      return IntegersRingBase.this.getElementSafe(augend.getValue().add(addend.getValue()));
+      return IntegersRingBase.this.getElementSafe(augend.getValue().multiply(addend.getValue()));
     }
 
     // Distributive
