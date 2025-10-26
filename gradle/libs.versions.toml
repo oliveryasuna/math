@@ -1,0 +1,7 @@
+[versions]
+commons-lang3 = "3.17.0"
+commons-language = "6.1.0"
+
+[libraries]
+commons-lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "commons-lang3" }
+commons-language = { module = "com.oliveryasuna:commons-language", version.ref = "commons-language" }

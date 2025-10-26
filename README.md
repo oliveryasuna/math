@@ -12,7 +12,52 @@ working on groups and rings.
 
 This is **not** an alternative to or replacement for [commons-math](https://commons.apache.org/proper/commons-math/).
 
-## Usage
+## Use Cases
+
+**Cryptography:**
+- **Elliptic Curve Cryptography:** Define elliptic curve groups for ECDSA/ECDH
+- **RSA:** Use multiplicative group modulo n for key generation and operations
+- **Diffie-Hellman:** Cyclic groups for key exchange protocols
+- **Digital Signatures:** Group-based signature schemes (Schnorr, DSA)
+- **Homomorphic Encryption:** Ring structures for operations on encrypted data
+
+**Number Theory:**
+- **Modular Arithmetic:** Already have `IntegersModuloNAdditiveGroup` for congruence computations
+- **Prime Field Operations:** Field arithmetic for prime moduli
+- **Chinese Remainder Theorem:** Combining ring homomorphisms
+- **Quadratic Residues:** Group structure of squares modulo p
+
+**Coding Theory:**
+- **Error-Correcting Codes:** Finite field arithmetic (Reed-Solomon, BCH codes)
+- **Linear Codes:** Vector spaces over finite fields
+- **Cyclic Codes:** Polynomial rings and ideals
+
+**Logic Theory:**
+- **Logic Operations:** Boolean rings (already have `BooleanRing` interface)
+- **Propositional Logic:** Algebraic structures for logical equivalences
+- **Modal Logic:** Algebraic semantics for modal operators
+
+**Computer Algebra Systems:**
+- **Symbolic Computation:** Ring operations on polynomials, matrices
+- **Algebraic Simplification:** Using ring axioms for expression rewriting
+- **Abstract Algebra Education:** Teaching tool for group/ring theory concepts
+
+**Discrete Mathematics:**
+- **Permutation Groups:** Symmetry operations, Rubik's cube solvers
+- **Graph Automorphisms:** Symmetry groups of graphs
+- **Combinatorial Structures:** Group actions on sets
+
+**Blockchain/Cryptocurrency:**
+- **Digital Signatures:** secp256k1 elliptic curve group (Bitcoin/Ethereum)
+- **Zero-Knowledge Proofs:** Cyclic group operations (zk-SNARKs, Bulletproofs)
+- **Multi-Party Computation:** Secret sharing in finite fields
+
+**Security Protocols:**
+- **Key Derivation:** Group operations for key stretching
+- **Password-Authenticated Key Exchange:** PAKE protocols using groups
+- **Threshold Cryptography:** Shamir secret sharing over finite fields
+
+## Example Usage
 
 Right now, the focus is on group- and ring-like structures.
 
