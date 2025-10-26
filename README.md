@@ -43,7 +43,7 @@ This is **not** an alternative to or replacement for [commons-math](https://comm
 - **Abstract Algebra Education:** Teaching tool for group/ring theory concepts
 
 **Discrete Mathematics:**
-- **Permutation Groups:** Symmetry operations, Rubik's cube solvers
+- **Permutation Groups:** Symmetry operations, Rubik's cube solvers (see [`SymmetricGroup`](./src/main/java/com/oliveryasuna/math/algebra/group/concrete/permutation/SymmetricGroup.java))
 - **Graph Automorphisms:** Symmetry groups of graphs
 - **Combinatorial Structures:** Group actions on sets
 
